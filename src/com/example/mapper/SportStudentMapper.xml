@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.example.mapper.SportStudentMapper">
+    <!--添加一张中间表-->
+    <insert id="addSportStudent" parameterType="com.example.model.SportStudent">
+        insert into sportStudent(sportId,studentNumber) values (#{sportId},#{studentNumber})
+    </insert>
+
+    <!--deleteSportStudentByStudentNumber,通过学生学号删除一个中间表-->
+    <delete id="deleteSportStudentByStudentNumber" parameterType="Integer">
+        delete from sportStudent where studentNumber = #{studentNumber}
+    </delete>
+
+    <!--deleteSportStudentBySportId,通过体育运动编号删除一个中间表-->
+    <delete id="deleteSportStudentBySportId" parameterType="Integer">
+        delete from sportStudent where sportId = #{sportId}
+    </delete>
+
+    <!--deleteSportStudentOnly,指定删除某一个特定中间表-->
+    <delete id="deleteSportStudentOnly" parameterType="com.example.model.SportStudent">
+        delete from sportStudent where sportId = #{sportId} and studentNumber = #{studentNumber}
+    </delete>
+
+    <!--findAll-->
+    <select id="findAll" resultType="com.example.model.SportStudent">
+        select * from sportStudent where 1 = 1;
+    </select>
+</mapper>

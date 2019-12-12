@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.example.mapper.SportMapper">
+
+    <!--添加运动-->
+    <insert id="addSport" parameterType="com.example.model.Sport">
+        insert into sports(sportName,sportNumberNeeded,sportNumberNow)
+        values(#{sportName},#{sportNumberNeeded},#{sportNumberNow})
+    </insert>
+
+    <!--删除运动-->
+    <delete id="deleteSportById" parameterType="Integer">
+        delete from sports where sportId = #{sportId}
+    </delete>
+
+    <!--更新运动信息-->
+    <update id="updateSport" parameterType="com.example.model.Sport">
+        update sports set sportName = #{sportName},sportNumberNeeded = #{sportNumberNeeded},sportNumberNow = #{sportNumberNow}
+        where sportId = #{sportId}
+    </update>
+
+    <!--findSportBySportId,通过ID找运动消息-->
+    <select id="findSportBySportId" parameterType="Integer" resultMap="findSportBySportIdResult">
+        select * from sports where sportId = #{sportId}
+    </select>
+    <!-- 自定义手动映射类型 -->
+    <resultMap type="com.example.model.Sport" id="findSportBySportIdResult">
+        <id property="sportId" column="sportId" />
+        <result property="sportName" column="sportName" />
+        <result property="sportNumberNeeded" column="sportNumberNeeded"/>
+        <result property="sportNumberNow" column="sportNumberNow"/>
+    </resultMap>
+
+    <!--findAllSports查找所有运动-->
+    <select id="findAllSports" resultType="com.example.model.Sport">
+        select * from sports where 1 = 1
+    </select>
+
+    <!--findSportsByStudentNumber,通过学生的学号查找运动-->
+    <select id="findSportsByStudentNumber" parameterType="Integer" resultType="com.example.model.Sport">
+        select sports.*
+        from sports,students,sportStudent
+        where sports.sportId = sportStudent.sportId
+        and sportStudent.studentNumber = students.studentNumber
+        and students.studentNumber = #{studentNumber}
+    </select>
+
+    <!--findSports,模糊查询-->
+    <select id="findSports" parameterType="String" resultType="com.example.model.Sport">
+        select * from sports where sportName like concat('%',#{value},'%')
+    </select>
+
+    <!--findSportIdByName,通过运动名字查找ID-->
+    <select id="findSportIdByName" parameterType="String" resultType="Integer">
+        select sportId from sports where sportName = #{sportName}
+    </select>
+
+</mapper>

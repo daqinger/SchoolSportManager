@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="ant-1.10.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/ant-1.10.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/ant-launcher-1.10.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/asm-7.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/cglib-3.2.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/javassist-3.24.1-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/log4j-api-2.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/log4j-core-2.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/mybatis-3.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/ognl-3.2.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/slf4j-api-1.7.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mybatis_jar/slf4j-log4j12-1.7.26.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

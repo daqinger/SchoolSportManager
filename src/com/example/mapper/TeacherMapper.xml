@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.example.mapper.TeacherMapper">
+
+    <!--teacherLogin,检测登陆-->
+    <select id="teacherLogin" parameterType="com.example.model.Teacher" resultType="com.example.model.Teacher">
+        select * from teachers where teacherName = #{teacherName} and teacherPassword = #{teacherPassword}
+    </select>
+
+    <!--updateTeacher更新老师信息-->
+    <update id="updateTeacher" parameterType="com.example.model.Teacher">
+        update teachers set teacherName = #{teacherName},teacherPassword = #{teacherPassword}
+        where teacherId = #{teacherId}
+    </update>
+
+    <update id="updateTeacherTest" parameterType="com.example.model.Teacher">
+        update teachers set teacherName = #{teacherName},teacherPassword = #{teacherPassword}
+        where teacherId = #{teacherId}
+    </update>
+
+
+    <!--findTeacherIdByTeacherName,通过老师名字查找老师编号-->
+    <select id="findTeacherIdByTeacherName" parameterType="String" resultType="Integer">
+        select teacherId from teachers where teacherName = #{teacherName}
+    </select>
+</mapper>

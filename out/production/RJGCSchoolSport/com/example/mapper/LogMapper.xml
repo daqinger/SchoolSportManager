@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.example.mapper.LogMapper">
+
+    <!--插入log数据-->
+    <insert id="addLogs" parameterType="com.example.model.Log">
+        insert into logs(logContent,logDate) values(#{logContent},#{logDate})
+    </insert>
+
+    <!--删除所有log数据-->
+    <delete id="deleteAllLogs">
+        delete from logs where 1 = 1
+    </delete>
+
+    <!--找出所有log数据-->
+    <select id="findAllLogs" resultType="com.example.model.Log">
+        select * from logs
+    </select>
+
+</mapper>
